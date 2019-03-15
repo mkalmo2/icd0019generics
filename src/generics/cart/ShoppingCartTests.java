@@ -45,7 +45,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(0)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void canAddMultipleItemsAtOnce() {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
@@ -57,7 +57,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(12)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void canIncreaseQuantityById() {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
@@ -70,7 +70,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(25)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void addingTheSameProductAgainIncreasesItsQuantity() {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
@@ -81,7 +81,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(10)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void canAddDiscountToWholeCart() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
@@ -92,7 +92,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(9)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void canAddMultipleDiscounts() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
@@ -105,7 +105,7 @@ public class ShoppingCartTests {
         assertThat(cart.getTotal(), is(closeTo(8.1)));
     }
 
-    @Test
+    @Test // 4 points instead of 5 if this test fails
     public void canClearAllTheDiscounts() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 

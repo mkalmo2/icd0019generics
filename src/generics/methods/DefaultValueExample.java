@@ -1,5 +1,7 @@
 package generics.methods;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -53,11 +55,11 @@ public class DefaultValueExample {
 
         Double constant = defaultIfNull(getConstantForZoneAsDouble("A"), 1.0);
 
-        assertThat(100 * constant, is(200));
+        assertThat(100 * constant, is(closeTo(200)));
 
         constant = defaultIfNull(getConstantForZoneAsDouble("B"), 1.0);
 
-        assertThat(100 * constant, is(100));
+        assertThat(100 * constant, is(closeTo(100)));
 
     }
 
@@ -112,10 +114,17 @@ public class DefaultValueExample {
         // simulates code that produces Double for certain key
 
         if ("A".equals(key)) {
-            return 1.0;
+            return 2.0;
         } else {
             return null;
         }
     }
+
+    private Matcher<Double> closeTo(double value) {
+        double precision = 0.001;
+
+        return Matchers.closeTo(value, precision);
+    }
+
 
 }
