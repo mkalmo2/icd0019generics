@@ -2,8 +2,8 @@ package generics.cart;
 
 public interface CartItem {
 
-    public String getId();
+    String getId();
 
-    public Double getPrice();
+    Double getPrice();
 
 }

@@ -1,7 +1,5 @@
 package generics.cart;
 
-import java.util.List;
-
 public class ShoppingCart<T> {
 
     public void add(Object item) {
@@ -9,10 +7,6 @@ public class ShoppingCart<T> {
     }
 
     public void removeById(String id) {
-        throw new RuntimeException("not implemented yet");
-    }
-
-    private boolean containsId(String id) {
         throw new RuntimeException("not implemented yet");
     }
 
@@ -25,13 +19,14 @@ public class ShoppingCart<T> {
     }
 
     public void applyDiscountPercentage(Double discount) {
-    }
-
-    public void cancelDiscounts() {
         throw new RuntimeException("not implemented yet");
     }
 
-    public void addAll(List items) {
+    public void removeLastDiscount() {
+        throw new RuntimeException("not implemented yet");
+    }
+
+    public void addAll(Object items) {
         throw new RuntimeException("not implemented yet");
     }
 }
