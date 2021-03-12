@@ -13,6 +13,7 @@ public class Stack {
         elements[size++] = element;
     }
 
+    @SuppressWarnings("unchecked")
     public Integer pop() {
         if (size == 0) {
             throw new IllegalStateException("stack is empty");
