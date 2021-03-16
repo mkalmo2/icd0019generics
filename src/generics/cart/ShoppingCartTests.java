@@ -4,7 +4,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -50,7 +50,7 @@ public class ShoppingCartTests {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.addAll(Arrays.asList(
+        cart.addAll(List.of(
                 new Product("i1", 10.0),
                 new Product("i2", 2.0)));
 
@@ -129,7 +129,7 @@ public class ShoppingCartTests {
 
         cart.applyDiscountPercentage(10.0);
 
-        cart.applyDiscountPercentage(10.0);
+        cart.applyDiscountPercentage(8.0);
 
         cart.removeLastDiscount();
 

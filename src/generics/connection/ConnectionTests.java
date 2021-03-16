@@ -4,11 +4,12 @@ import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Tests {
+public class ConnectionTests {
 
     @Test
     public void findsConnectionToDestination() {
@@ -81,7 +82,7 @@ public class Tests {
             current = next;
         }
 
-        if (!next.equals(to)) {
+        if (!Objects.equals(next, to)) {
             throw new AssertionError("path should end with " + to);
         }
     }
