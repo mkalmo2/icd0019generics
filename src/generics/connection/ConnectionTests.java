@@ -72,9 +72,8 @@ public class ConnectionTests {
             throw new AssertionError("path should start with " + from);
         }
 
-        String next = null;
         while (iterator.hasNext()) {
-            next = iterator.next();
+            String next = iterator.next();
             var c = TestDataGenerator.getConnection(current, next);
             if (!connections.contains(c)) {
                 throw new AssertionError(String.format("connection %s does not exist", c));
@@ -82,7 +81,7 @@ public class ConnectionTests {
             current = next;
         }
 
-        if (!Objects.equals(next, to)) {
+        if (!Objects.equals(current, to)) {
             throw new AssertionError("path should end with " + to);
         }
     }

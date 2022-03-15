@@ -25,10 +25,9 @@ public class Connection {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Connection)) {
+        if (!(o instanceof Connection other)) {
             return false;
         }
-        Connection other = (Connection) o;
 
         return Objects.equals(from, other.from) &&
                 Objects.equals(to, other.to);
