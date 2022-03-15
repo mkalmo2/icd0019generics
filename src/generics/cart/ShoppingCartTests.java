@@ -131,6 +131,8 @@ public class ShoppingCartTests {
 
         cart.applyDiscountPercentage(8.0);
 
+        assertThat(cart.getTotal(), is(closeTo(8.28)));
+
         cart.removeLastDiscount();
 
         assertThat(cart.getTotal(), is(closeTo(9)));
