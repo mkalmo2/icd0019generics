@@ -1,8 +1,8 @@
 package generics.cart;
 
 public class Service implements CartItem {
-    private String serviceId;
-    private Double salePrice;
+    private final String serviceId;
+    private final Double salePrice;
 
     public Service(String id, Double price) {
         this.serviceId = id;

@@ -1,8 +1,8 @@
 package generics.cart;
 
 public class Product implements CartItem {
-    private String id;
-    private Double price;
+    private final String id;
+    private final Double price;
 
     public Product(String id, Double price) {
         this.id = id;

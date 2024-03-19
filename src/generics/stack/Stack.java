@@ -2,7 +2,7 @@ package generics.stack;
 
 public class Stack {
 
-    private Integer[] elements;
+    private final Integer[] elements;
     private Integer size = 0;
 
     public Stack() {
