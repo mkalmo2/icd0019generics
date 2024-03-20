@@ -2,7 +2,6 @@ package generics.list;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -17,7 +16,7 @@ public class MyListTest {
         list.add(1);
         list.add(2.0);
 
-        List<Integer> integers = Arrays.asList(3, 4);
+        List<Integer> integers = List.of(3, 4);
 
         list.addAll(integers);
 
