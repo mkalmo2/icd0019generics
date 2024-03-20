@@ -16,8 +16,8 @@ public class ShoppingCartTests {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 10.0));
-        cart.add(new Product("i2", 5.0));
+        cart.add(new Product("p1", 10.0));
+        cart.add(new Product("p2", 5.0));
 
         assertThat(cart.getTotal(), is(closeTo(15)));
     }
@@ -38,9 +38,9 @@ public class ShoppingCartTests {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 10.0));
+        cart.add(new Product("p1", 10.0));
 
-        cart.removeById("i1");
+        cart.removeById("p1");
 
         assertThat(cart.getTotal(), is(closeTo(0)));
     }
@@ -51,8 +51,8 @@ public class ShoppingCartTests {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
         cart.addAll(List.of(
-                new Product("i1", 10.0),
-                new Product("i2", 2.0)));
+                new Product("p1", 10.0),
+                new Product("p2", 2.0)));
 
         assertThat(cart.getTotal(), is(closeTo(12)));
     }
@@ -74,13 +74,13 @@ public class ShoppingCartTests {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 5.0));
-        cart.add(new Product("i2", 10.0));
+        cart.add(new Product("p1", 5.0));
+        cart.add(new Product("p2", 10.0));
 
-        cart.increaseQuantity("i2");
+        cart.increaseQuantity("p2");
 
         assertThat(cart.getTotal(), is(closeTo(25)));
-        assertThat(cart.toString(), is("(i1, 5.0, 1), (i2, 10.0, 2)"));
+        assertThat(cart.toString(), is("(p1, 5.0, 1), (p2, 10.0, 2)"));
     }
 
     @Test
@@ -88,44 +88,44 @@ public class ShoppingCartTests {
 
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 5.0));
-        cart.add(new Product("i1", 5.0));
+        cart.add(new Product("p1", 5.0));
+        cart.add(new Product("p1", 5.0));
 
         assertThat(cart.getTotal(), is(closeTo(10)));
-        assertThat(cart.toString(), is("(i1, 5.0, 2)"));
+        assertThat(cart.toString(), is("(p1, 5.0, 2)"));
     }
 
     @Test
     public void canAddDiscountToWholeCart() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 10.0));
+        cart.add(new Product("p1", 10.0));
 
         cart.applyDiscountPercentage(10.0);
 
         assertThat(cart.getTotal(), is(closeTo(9)));
-        assertThat(cart.toString(), is("(i1, 10.0, 1)"));
+        assertThat(cart.toString(), is("(p1, 10.0, 1)"));
     }
 
     @Test
     public void canAddMultipleDiscounts() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 10.0));
+        cart.add(new Product("p1", 10.0));
 
         cart.applyDiscountPercentage(10.0);
 
         cart.applyDiscountPercentage(10.0);
 
         assertThat(cart.getTotal(), is(closeTo(8.1)));
-        assertThat(cart.toString(), is("(i1, 10.0, 1)"));
+        assertThat(cart.toString(), is("(p1, 10.0, 1)"));
     }
 
     @Test
     public void canRemoveLastDiscount() {
         ShoppingCart<Product> cart = new ShoppingCart<>();
 
-        cart.add(new Product("i1", 10.0));
+        cart.add(new Product("p1", 10.0));
 
         cart.applyDiscountPercentage(10.0);
 
