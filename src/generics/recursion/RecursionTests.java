@@ -1,14 +1,13 @@
 package generics.recursion;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RecursionTests {
 
@@ -17,16 +16,16 @@ public class RecursionTests {
 
         Path path = Paths.get("a/b/c/d.txt");
 
-        assertThat(path.getFileName().toString(), is("d.txt"));
+        assertThat(path.getFileName().toString()).isEqualTo("d.txt");
 
         assertThat(path
                 .getParent()
-                .getFileName().toString(), is("c"));
+                .getFileName().toString()).isEqualTo("c");
 
         assertThat(path
                 .getParent()
                 .getParent()
-                .getFileName().toString(), is("b"));
+                .getFileName().toString()).isEqualTo("b");
 
         // etc...
     }

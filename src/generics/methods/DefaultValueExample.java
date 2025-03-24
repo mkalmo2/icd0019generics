@@ -1,11 +1,8 @@
 package generics.methods;
 
-import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefaultValueExample {
 
@@ -20,7 +17,7 @@ public class DefaultValueExample {
 
         Integer result = 100 * constant;
 
-        assertThat(result, is(200)); // constant for zone A exists
+        assertThat(result).isEqualTo(200); // constant for zone A exists
     }
 
     @Test
@@ -34,7 +31,7 @@ public class DefaultValueExample {
 
         Integer result = 100 * constant;
 
-        assertThat(result, is(100)); // constant for zone b does not exist
+        assertThat(result).isEqualTo(100); // constant for zone b does not exist
                                      // and default was used
     }
 
@@ -43,11 +40,11 @@ public class DefaultValueExample {
 
         Integer constant = defaultIfNull(getConstantForZone("A"), 1);
 
-        assertThat(100 * constant, is(200));
+        assertThat(100 * constant).isEqualTo(200);
 
         constant = defaultIfNull(getConstantForZone("B"), 1);
 
-        assertThat(100 * constant, is(100));
+        assertThat(100 * constant).isEqualTo(100);
     }
 
     @Test
@@ -55,11 +52,11 @@ public class DefaultValueExample {
 
         Double constant = defaultIfNull(getConstantForZoneAsDouble("A"), 1.0);
 
-        assertThat(100 * constant, is(closeTo(200)));
+        assertThat(100 * constant).isEqualTo(150);
 
         constant = defaultIfNull(getConstantForZoneAsDouble("B"), 1.0);
 
-        assertThat(100 * constant, is(closeTo(100)));
+        assertThat(100 * constant).isEqualTo(100);
 
     }
 
@@ -100,7 +97,7 @@ public class DefaultValueExample {
 
     private Integer getConstantForZone(String key) {
 
-        // simulates code that produces Integer for certain input
+        // simulates code that produces Integer for certain key
 
         if ("A".equals(key)) {
             return 2;
@@ -114,17 +111,10 @@ public class DefaultValueExample {
         // simulates code that produces Double for certain key
 
         if ("A".equals(key)) {
-            return 2.0;
+            return 1.5;
         } else {
             return null;
         }
     }
-
-    private Matcher<Double> closeTo(double value) {
-        double precision = 0.001;
-
-        return Matchers.closeTo(value, precision);
-    }
-
 
 }

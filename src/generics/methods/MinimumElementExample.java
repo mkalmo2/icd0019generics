@@ -1,19 +1,19 @@
 package generics.methods;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MinimumElementExample {
 
     @Test
     public void findsMinimumElementFromList() {
-        assertThat(minimumElement(List.of(1, 2, -5)), is(-5));
+        assertThat(minimumElement(Arrays.asList(1, 2, -5))).isEqualTo(-5);
 
-        assertThat(minimumElementForStrings(List.of("b", "a", "c")), is("a"));
+        assertThat(minimumElementForStrings(Arrays.asList("b", "a", "c"))).isEqualTo("a");
     }
 
 

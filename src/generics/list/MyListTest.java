@@ -1,11 +1,10 @@
 package generics.list;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MyListTest {
 
@@ -20,6 +19,6 @@ public class MyListTest {
 
         list.addAll(integers);
 
-        assertThat(list.toString(), is("[1, 2.0, 3, 4]"));
+        assertThat(list.toString()).isEqualTo("[1, 2.0, 3, 4]");
     }
 }

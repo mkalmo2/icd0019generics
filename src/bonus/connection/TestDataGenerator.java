@@ -1,4 +1,4 @@
-package generics.connection;
+package bonus.connection;
 
 import java.util.*;
 

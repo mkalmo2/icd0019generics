@@ -1,13 +1,12 @@
-package generics.connection;
+package bonus.connection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConnectionTests {
 
@@ -18,17 +17,17 @@ public class ConnectionTests {
 
         finder.add(new Connection("a", "b"));
 
-        assertTrue(finder.hasConnection("a", "b"));
-        assertTrue(finder.hasConnection("b", "a"));
+        assertThat(finder.hasConnection("a", "b")).isTrue();
+        assertThat(finder.hasConnection("b", "a")).isTrue();
 
         finder.add(new Connection("b", "c"));
 
-        assertTrue(finder.hasConnection("a", "c"));
-        assertTrue(finder.hasConnection("c", "a"));
+        assertThat(finder.hasConnection("a", "c")).isTrue();
+        assertThat(finder.hasConnection("c", "a")).isTrue();
 
         finder.add(new Connection("e", "f"));
 
-        assertFalse(finder.hasConnection("a", "f"));
+        assertThat(finder.hasConnection("a", "f")).isFalse();
     }
 
     @Test
@@ -40,20 +39,20 @@ public class ConnectionTests {
         var finder = new ConnectionFinder();
         finder.addAll(connections);
 
-        assertTrue(finder.hasConnection("E00001", "E33522"));
+        assertThat(finder.hasConnection("E00001", "E33522")).isTrue();
 
         assertValidConnection("E00001", "E33522",
                 finder.findConnection("E00001", "E33522"), connections);
 
-        assertFalse(finder.hasConnection("E00001", "E33601"));
+        assertThat(finder.hasConnection("E00001", "E33601")).isFalse();
 
 
-        assertTrue(finder.hasConnection("E00001", "E59799"));
+        assertThat(finder.hasConnection("E00001", "E59799")).isTrue();
 
         assertValidConnection("E00001", "E59799",
                 finder.findConnection("E00001", "E59799"), connections);
 
-        assertFalse(finder.hasConnection("E00001", "E59801"));
+        assertThat(finder.hasConnection("E00001", "E59801")).isFalse();
     }
 
     private void assertValidConnection(

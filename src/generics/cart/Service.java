@@ -1,21 +1,9 @@
 package generics.cart;
 
-public class Service implements CartItem {
-    private final String serviceId;
-    private final Double salePrice;
+public record Service(String id, Double price) implements CartItem {
 
-    public Service(String id, Double price) {
-        this.serviceId = id;
-        this.salePrice = price;
+    public Service(String id, Integer price) {
+        this(id, Double.valueOf(price));
     }
 
-    @Override
-    public String getId() {
-        return serviceId;
-    }
-
-    @Override
-    public Double getPrice() {
-        return salePrice;
-    }
 }

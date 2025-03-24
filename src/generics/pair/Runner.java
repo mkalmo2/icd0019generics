@@ -1,9 +1,8 @@
 package generics.pair;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class Runner {
 
@@ -14,7 +13,7 @@ public class Runner {
         String key = pair.getFirst();
         Integer value = pair.getSecond();
 
-        assertThat(key, is("key"));
-        assertThat(value, is(1));
+        assertThat(key).isEqualTo("key");
+        assertThat(value).isEqualTo(1);
     }
 }

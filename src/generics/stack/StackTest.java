@@ -1,9 +1,8 @@
 package generics.stack;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StackTest {
 
@@ -17,8 +16,8 @@ public class StackTest {
         Integer first = stack.pop();
         Integer second = stack.pop();
 
-        assertThat(first, is(2));
-        assertThat(second, is(1));
+        assertThat(first).isEqualTo(2);
+        assertThat(second).isEqualTo(1);
     }
 
 }
