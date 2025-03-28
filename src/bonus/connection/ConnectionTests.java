@@ -73,7 +73,7 @@ public class ConnectionTests {
 
         while (iterator.hasNext()) {
             String next = iterator.next();
-            var c = TestDataGenerator.getConnection(current, next);
+            Connection c = TestDataGenerator.getConnection(current, next);
             if (!connections.contains(c)) {
                 throw new AssertionError(String.format("connection %s does not exist", c));
             }
