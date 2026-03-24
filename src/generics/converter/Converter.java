@@ -1,5 +1,6 @@
 package generics.converter;
 
+@FunctionalInterface
 public interface Converter<T, U> {
-    public U convert(T input);
+    U convert(T input);
 }

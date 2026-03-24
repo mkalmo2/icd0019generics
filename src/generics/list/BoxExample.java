@@ -15,7 +15,7 @@ public class BoxExample {
     }
 
     static class Box<T> {
-        public Box(T contents) {
+        Box(T contents) {
             this.contents = contents;
         }
 
