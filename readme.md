@@ -9,8 +9,11 @@ Kui valite Idea's Build menüüst -> Rebuild project peaks tulema teade
 "Compilation completed successfully ..."
 
 1. Klass generics.pair.Pair on konteiner kahe elemendi hoidmiseks.
-   Praegu on nende elementide tüübid rangelt määratud. Muutke klassi Pair 
-   nii, et sellele saaks elementide tüübid parameetritena ette anda.
+   Praegu on nende elementide tüübid rangelt määratud. 
+ 
+   a) Muutke klassi Pair nii, et sellele saaks elementide tüübid 
+      parameetritena ette anda.
+   b) Kasutage klassi asemel record'it koos tüübi prameetritega.
    
    Proovimiseks on klass generics.pair.Runner.   
 
@@ -74,6 +77,13 @@ Kui valite Idea's Build menüüst -> Rebuild project peaks tulema teade
    c) Klassis generics.list.MyList on lihtne versioon listist.
       Selles on puudu addAll() meetodi sisu. Kirjutage vajalik kood, et tööle 
       hakkaks test klassis MyListTest.
+
+   d) Klassis generics.wildcard.Main on näide, mis illustreerib "? extends ..."
+      tüübiparameetri kasutamist. Proovige aru saada, miks rida mysteryBox.put(11);
+      ei kompileeru.
+
+   e) Klassis generics.validator.Validator on näide, mis illustreerib "? super ..."
+      tüübiparameetri kasutamist. Proovige aru saada, mis roll on konstruktsioonil "? super ...".
 
 7. Paketis generics.converter on mõned klassid, milles oleks sobilik 
    tüübi parameetreid kasutada.
