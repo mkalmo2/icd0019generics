@@ -1,6 +1,6 @@
 package generics.wildcards;
 
-public class Main {
+public class ExampleExtends {
 
     public static void main(String[] args) {
         Box<Integer> intBox = new Box<>();
@@ -8,10 +8,10 @@ public class Main {
         intBox.put(10);
 
         Box<? extends Number> mysteryBox = intBox;
-        // box of number but which numbers is not know
+        // a box of Number, but which subclass of Number is not know
 
         Number number = mysteryBox.get();
-        // we can take out numbers
+        // we can take out Numbers
 
         // mysteryBox.put(11); // Does not compile!
         // Required type: capture of ? extends Number
